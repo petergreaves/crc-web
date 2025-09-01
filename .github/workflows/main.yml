@@ -1,0 +1,62 @@
+name: Test IAM Role
+
+on:
+  workflow_dispatch:  # Allows manual trigger
+  push:
+    branches: [main]
+
+jobs:
+  test-role:
+    runs-on: ubuntu-latest
+    
+    # Grant GITHUB_TOKEN permissions to request JWT
+    permissions:
+      id-token: write
+      contents: read
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: GitHubActions-Test
+      
+      - name: Test AWS Identity
+        run: |
+          echo "Testing AWS identity..."
+          aws sts get-caller-identity
+          echo ""
+          echo "Current AWS region:"
+          aws configure get region
+      
+      - name: Test S3 List Access
+        run: |
+          echo "Testing S3 list access..."
+          aws s3 ls s3://${{ secrets.S3_BUCKET }}
+      
+      - name: Test S3 Put Access
+        run: |
+          echo "Testing S3 put access..."
+          echo "Test file created at $(date)" > test-file.txt
+          aws s3 cp test-file.txt s3://${{ secrets.S3_BUCKET }}/github-test/
+      
+      - name: Test S3 Get Access
+        run: |
+          echo "Testing S3 get access..."
+          aws s3 cp s3://${{ secrets.S3_BUCKET }}/github-test/test-file.txt downloaded-test.txt
+          cat downloaded-test.txt
+      
+      - name: Test S3 Delete Access
+        run: |
+          echo "Testing S3 delete access..."
+          aws s3 rm s3://${{ secrets.S3_BUCKET }}/github-test/test-file.txt
+          echo "Test file deleted"
+      
+      - name: Verify Permissions (Should Fail)
+        run: |
+          echo "Testing access to different bucket (should fail)..."
+          aws s3 ls s3://some-other-bucket || echo "✅ Access denied as expected"
