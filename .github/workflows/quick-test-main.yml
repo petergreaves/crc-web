@@ -12,4 +12,4 @@ jobs:
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ${{ secrets.AWS_REGION }}
-      - run: aws sts get-caller-identity
+      - run: aws sts get-caller-identity --region ${{ secrets.AWS_REGION }}
