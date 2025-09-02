@@ -1,6 +1,4 @@
 name: Test IAM Role
-env:
-  AWS_DEFAULT_REGION: eu-west-2
 
 on:
   workflow_dispatch:  # Allows manual trigger
@@ -24,7 +22,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
-          aws-region: $AWS_DEFAULT_REGION
+          aws-region: eu-west-2
           role-session-name: GitHubActions-Test
       
       - name: Test AWS Identity
