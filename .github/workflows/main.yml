@@ -28,7 +28,7 @@ jobs:
       - name: Test AWS Identity
         run: |
           echo "Testing AWS identity..."
-          aws sts get-caller-identity
+          aws sts get-caller-identity --region ${{ secrets.AWS_REGION }}
           echo ""
           echo "Current AWS region:"
           aws configure get region
