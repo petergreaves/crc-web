@@ -14,12 +14,7 @@ jobs:
       id-token: write
       contents: read
     
-    steps:
-      - name: Debug Bucket Name
-        run: |
-          echo "Bucket from secret: '${{ secrets.S3_BUCKET }}'"
-          echo "Bucket in policy: 'cloud-resume-challenge-content-bucket'"
-        
+    steps:     
       - name: Checkout code
         uses: actions/checkout@v4
       
@@ -34,6 +29,11 @@ jobs:
         run: |
           echo "Testing AWS identity..."
           aws sts get-caller-identity --region ${{ secrets.AWS_REGION }}
+
+      - name: Debug Bucket Name
+        run: |
+          echo "Bucket from secret: '${{ secrets.S3_BUCKET }}'"
+          echo "Bucket in policy: 'cloud-resume-challenge-content-bucket'"
       
       - name: Test S3 List Access
         run: |
