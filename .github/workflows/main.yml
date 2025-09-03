@@ -1,3 +1,6 @@
+env:
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+
 name: Test IAM Role
 
 on:
@@ -28,7 +31,7 @@ jobs:
       - name: Test AWS Identity
         run: |
           echo "Testing AWS identity..."
-          aws sts get-caller-identity --region eu-west-2
+          aws sts get-caller-identity
       - name: Debug Bucket Name
         run: |
           echo "Bucket from secret: '${{ secrets.S3_BUCKET }}'"
