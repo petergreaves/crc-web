@@ -1,7 +1,7 @@
 env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
 
-name: Test IAM Role
+name: Deploy HTML to S3
 
 on:
   workflow_dispatch:  # Allows manual trigger
@@ -25,7 +25,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
-          role-session-name: GitHubActions-Test
+          role-session-name: GH-push-to-resume-bucket
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Clear existing content
         run: |
