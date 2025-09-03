@@ -1,0 +1,39 @@
+env:
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+
+name: Test IAM Role
+
+on:
+  workflow_dispatch:  # Allows manual trigger
+  push:
+    branches: [main]
+
+jobs:
+  test-role:
+    runs-on: ubuntu-latest
+    
+    # Grant GITHUB_TOKEN permissions to request JWT
+    permissions:
+      id-token: write
+      contents: read
+    
+    steps:     
+      - name: Checkout code
+        uses: actions/checkout@v4
+   
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          role-session-name: GitHubActions-Test
+          aws-region: ${{ secrets.AWS_REGION }}
+      - name: Clear existing content
+        run: |
+          echo "Clearing resume content..."
+          aws s3 rm s3://${{ secrets.S3_BUCKET }} --recursive
+      
+      - name: PUT resume content
+        run: |
+          echo "Updating resume content ..."
+          aws s3 cp html/index.html s3://${{ secrets.S3_BUCKET }}
+          aws s3 cp html/stylesheet.css s3://${{ secrets.S3_BUCKET }}
