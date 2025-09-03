@@ -25,7 +25,6 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
-          aws-region: ${{ secrets.AWS_REGION }}
           role-session-name: GitHubActions-Test
       
       - name: Test AWS Identity
@@ -37,7 +36,7 @@ jobs:
           echo "Bucket from secret: '${{ secrets.S3_BUCKET }}'"
           echo "Bucket in policy: 'cloud-resume-challenge-content-bucket'"
           echo "Checking role policies..."
-          ROLE_NAME=$(aws sts get-caller-identity --region eu-west-2--query 'Arn' --output text | cut -d'/' -f2)
+          ROLE_NAME=$(aws sts get-caller-identity --query 'Arn' --output text | cut -d'/' -f2)
           echo "Role name: $ROLE_NAME"
       
       - name: Test S3 List Access
