@@ -9,7 +9,7 @@ on:
     branches: [main]
 
 jobs:
-  test-role:
+  resume-content-update:
     runs-on: ubuntu-latest
     
     # Grant GITHUB_TOKEN permissions to request JWT
@@ -21,19 +21,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
    
-      - name: Configure AWS credentials
+      - name: Configure credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           role-session-name: GH-push-to-resume-bucket
           aws-region: ${{ secrets.AWS_REGION }}
-      - name: Clear existing content
+      - name: Clear existing resume content
         run: |
           echo "Clearing resume content..."
           aws s3 rm s3://${{ secrets.S3_BUCKET }} --recursive
       
-      - name: PUT resume content
+      - name: PUT latest resume content
         run: |
-          echo "Updating resume content ..."
+          echo "Updating latest resume content ..."
           aws s3 cp html/index.html s3://${{ secrets.S3_BUCKET }}
           aws s3 cp html/stylesheet.css s3://${{ secrets.S3_BUCKET }}
