@@ -13,13 +13,13 @@
 <div id="result" class="result" style="display: none;">
     <div id="hits-display" class="hits"></div>
 </div>
-<p class="head">About</p>
+<h2>About this resume</h2>
 <p>This resume is hosted on AWS, with the content you are reading served from an S3 bucket. The hit counter is incremented
 by a serverless application (ANS Lambda), accessed via an API gateway, with the data persisted in an Amazon DynamoDB instance,
 a NoSQL database platform. The resume was designed to be an illustration of the skills I have acquired by taking on the
     <a href="https://cloudresumechallenge.dev">Cloud Resume Challenge</a>.   If you are interested in
     learning about AWS or Cloud technologies, check out the link to the challenge, or to the code in <a href="https://github.com/petergreaves/crc">github.</a></p>
-<p class="head">Summary</p>
+<h">Summary</h2>
 <p>I am an experienced technology professional, recently certified as an AWS Cloud Practitioner.
     I have a history of solution definition and implementation/delivery, with many years working at IBM and other
     technology companies for corporate clients in a variety of industries. My current role is in the DevOps team in the Payments division of
@@ -30,14 +30,14 @@ a NoSQL database platform. The resume was designed to be an illustration of the 
     <li>University of Kent, 1987-1988, Post Graduate Certification of Education</li>
     <li>Open University, 2022 - present, BSc Planetary Science and Astronomy</li>
     <li>Introduction to the Unified Process and Object Oriented Programming and Design (5 days/1999, Learning Tree, London UK)</li>
-    <li>Java 1.1 rogramming (5 days, 2000, Sun Education Services, Camberley UK)</li>
+    <li>Java 1.1 Programming (5 days, 2000, Sun Education Services, Camberley UK)</li>
     <li>WebSphere Portal 5.0 Development (5 days, 2006), IBM Education Services</li>
     <li>WebSphere Application Server 6.1 Installation and Administration (May 2008), IBM Education Services</li>
     <li>Various IBM technical and consulting internal courses 1998-2005, leading to Open Group Architect certification 2005
     <li>TOGAF training, 2016</li>
     <li> AWS Fundamentals and Serverless programming courses, 2024/2025</li>
 </ul>
-<p class="head">Experience</p>
+<h2>Experience</h2>
 <ul>
     <li><p class="emp-hist">Oct 2021 - present, NatWest Group, Principal Engineer.</p>I work in a DevOps role, supporting and extending our Payments API platforms on AWS. I also have focus on improving hosting efficient and application transformation to cloud, using my sftware development and infrastructure experience.</li>
     <li><p class="emp-hist">June 2019 - April 2021,  IBM UK, Sterling Expert Labs Solutions Architect</p> I was the Solutions architect for IBM Sterling Expert Labs in Europe, focused on customers using IBM Sterling B2Bi and companion products for business to business integration. I focused on solution design for infrastructure, including networks/connectivity, database and security.</li>
@@ -50,16 +50,16 @@ a NoSQL database platform. The resume was designed to be an illustration of the 
     <li><p class="emp-hist">1990 - 1998, various</p>A variety of technical roles in businesses in the UK, some involving development activity, and others customer services in management positions.</li>
     <li><p class="emp-hist">1989 - 1990, TEFL Teacher in Madrid.</p>Teacher of English in Madrid.</li>
 </ul>
-<p class="head">Current certifications</p>
+<h2>Current certifications</h2>
 <ul>
     <li>AWS Certified Cloud Practitioner, April 2025 (validation code: ed47ff9bef0344f09db60b8da5745841)</li>
 </ul>
-<p class="head">Skills</p>
+<h2>Skills</h2>
 <ul>
     <li>Java, Go, Spring Boot 3, REST and Microservices design and development, SQL and NoSQL, DevOps</li>
     <li>French (intermediate)</li>
 </ul>
-<p class="head">Interests</p>
+<h2>Interests</h2>
 <ul>
     <li>Triathlon</li>
     <li>Arts and Literature</li>
@@ -75,7 +75,7 @@ a NoSQL database platform. The resume was designed to be an illustration of the 
         // Show loading state
         resultDiv.style.display = 'block';
         resultDiv.className = 'result loading';
-        hitsDisplay.innerHTML = 'Loading...';
+        hitsDisplay.innerHTML = 'Getting the number of visits...';
 
         var apiURL = 'https://api.peter-greaves.net/prod/api/counter'
 
@@ -112,7 +112,7 @@ a NoSQL database platform. The resume was designed to be an illustration of the 
 
         resultDiv.style.display = 'block';
         resultDiv.className = 'result';
-        hitsDisplay.innerHTML = `<div>This page has been viewed <span class="hits-value">${hits}</span> times.</div>`;
+        hitsDisplay.innerHTML = `<div>This resume has been visited <span class="hits-value">${hits}</span> times.</div>`;
     }
 </script>
 </body>

@@ -1,88 +1,100 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+
 * {
-  max-width: 700px;
-  margin: auto;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-
-/*body {
-    min-width: 500px;
-}*/
-
-div {
-  border-radius: 5px;
+body {
+	font-family: 'Open Sans', sans-serif;
+	line-height: 1.75em;
+	font-size: 16px;
+	background-color: #222;
+	color: #aaa;
 }
 
-#header {
-  height: 40px;
-  width: 100%;
-  background-color: #ffcccc;
-  position: fixed;
-  z-index: 1;
+.simple-container {
+	max-width: 675px;
+	margin: 0 auto;
+	padding-top: 70px;
+	padding-bottom: 20px;
 }
 
-#title {
-  margin-left: 3%;
+.simple-print {
+	fill: white;
+	stroke: white;
+}
+.simple-print svg {
+	height: 100%;
 }
 
-#footer {
-  height: 50px;
-  width: 100%;
-  background-color: #ffcccc;
-  clear: both;
-  position: relative;
+.simple-close {
+	color: white;
+	border-color: white;
 }
 
-.emp-hist {
-  font-weight: bold;
-}
-.left {
-  height: 1000px;
-  width: 45px;
-  background-color: #e0eeee;
-  float: left;
-  position: fixed;
-}
-.right {
-  height: 1000px;
-  width: 45px;
-  background-color: #e0eeee;
-  float: right;
-  position: inherit;
-}
-#hits-display {
-  font-weight: bold;
+.simple-ext-info {
+	border-top: 1px solid #aaa;
 }
 
-p,
+p {
+	font-size: 16px;
+}
+
+h1 {
+	font-size: 30px;
+	line-height: 34px;
+}
+
+h2 {
+	font-size: 20px;
+	line-height: 25px;
+}
+
+h3 {
+	font-size: 16px;
+	line-height: 27px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #D8D8D8;
+	border-top: 1px solid #D8D8D8;
+}
+
+hr {
+	height: 1px;
+	background-color: #d8d8d8;
+	border: none;
+	width: 100%;
+	margin: 0px;
+}
+
+a[href] {
+	color: #1e8ad6;
+}
+
+a[href]:hover {
+	color: #3ba0e6;
+}
+
+img {
+	max-width: 100%;
+}
+
 li {
-  font-family: 'Cormorant Garamond';
+	line-height: 1.5em;
 }
 
-.head {
-  font-size: 20px;
-  padding-bottom: 10px;
-  padding-top: 10px;
+aside,
+[class *= "sidebar"],
+[id *= "sidebar"] {
+	max-width: 90%;
+	margin: 0 auto;
+	border: 1px solid lightgrey;
+	padding: 5px 15px;
 }
 
-#name {
-  font-family: Sacramento;
-  float: right;
-  margin-top: 10px;
-  margin-right: 4%;
-}
-
-a {
-  color: black;
-  text-underline: black;
-}
-
-@media only screen and (max-width: 430px) {
-  .left,
-  .right {
-    display: none;
-  }
-  .stuff {
-    width: 100%;
-    margin-left: 10px;
-  }
+@media (min-width: 1921px) {
+	body {
+		font-size: 18px;
+	}
 }
