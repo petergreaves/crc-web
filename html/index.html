@@ -7,24 +7,21 @@
           rel="stylesheet">
 </head>
 <body onload="fetchHits()">
-<div class="header"/>
-<h1>Resume for Peter Greaves</h1>
+<div class="header" />
+<h1>Peter Greaves, London</h1>
 <hr/>
 <div id="result" class="result" style="display: none;">
     <div id="hits-display" class="hits"></div>
 </div>
-<h2>About this resume</h2>
-<p>This resume is hosted on AWS, with the content you are reading served from an S3 bucket. The hit counter is incremented
-by a serverless application (ANS Lambda), accessed via an API gateway, with the data persisted in an Amazon DynamoDB instance,
-a NoSQL database platform. The resume was designed to be an illustration of the skills I have acquired by taking on the
-    <a href="https://cloudresumechallenge.dev">Cloud Resume Challenge</a>.   If you are interested in
-    learning about AWS or Cloud technologies, check out the link to the challenge, or to the code in <a href="https://github.com/petergreaves/crc">github.</a></p>
-<h">Summary</h2>
-<p>I am an experienced technology professional, recently certified as an AWS Cloud Practitioner.
+<div class="block-element" style="min-height:270px"><img src="./images/IMG_3593.jpeg" class="left-image" alt="Picture of Peter Greaves"/>
+<h2>Summary</h2>
+    I am an experienced technology professional, recently certified as an AWS Cloud Practitioner.
     I have a history of solution definition and implementation/delivery, with many years working at IBM and other
     technology companies for corporate clients in a variety of industries. My current role is in the DevOps team in the Payments division of
-    a UK bank, working in a team supporting and extending our Payments systems.</p>
-<p class="head">Education/professional training</p>
+    a UK bank, working in a team supporting and extending our Payments systems. This resume is implemented fully using in Amazon Web Services, 
+    as a demonstration of skills and learning I have acquired with the AWS technology stack - <a href="#about-id">find out more!</a></div>
+<div class="block-element">
+<h2>Education/professional training</h2>
 <ul>
     <li>University of Hull, 1981-1984, BA Hons, English</li>
     <li>University of Kent, 1987-1988, Post Graduate Certification of Education</li>
@@ -37,6 +34,8 @@ a NoSQL database platform. The resume was designed to be an illustration of the 
     <li>TOGAF training, 2016</li>
     <li> AWS Fundamentals and Serverless programming courses, 2024/2025</li>
 </ul>
+</div>
+<div class="block-element">
 <h2>Experience</h2>
 <ul>
     <li><p class="emp-hist">Oct 2021 - present, NatWest Group, Principal Engineer.</p>I work in a DevOps role, supporting and extending our Payments API platforms on AWS. I also have focus on improving hosting efficient and application transformation to cloud, using my sftware development and infrastructure experience.</li>
@@ -50,6 +49,8 @@ a NoSQL database platform. The resume was designed to be an illustration of the 
     <li><p class="emp-hist">1990 - 1998, various</p>A variety of technical roles in businesses in the UK, some involving development activity, and others customer services in management positions.</li>
     <li><p class="emp-hist">1989 - 1990, TEFL Teacher in Madrid.</p>Teacher of English in Madrid.</li>
 </ul>
+</div>
+<div class="block-element">
 <h2>Current certifications</h2>
 <ul>
     <li>AWS Certified Cloud Practitioner, April 2025 (validation code: ed47ff9bef0344f09db60b8da5745841)</li>
@@ -59,13 +60,23 @@ a NoSQL database platform. The resume was designed to be an illustration of the 
     <li>Java, Go, Spring Boot 3, REST and Microservices design and development, SQL and NoSQL, DevOps</li>
     <li>French (intermediate)</li>
 </ul>
+</div>
+<div class="block-element">
 <h2>Interests</h2>
 <ul>
     <li>Triathlon</li>
     <li>Arts and Literature</li>
     <li>Planetary Science and Astronomy (currently studying for an Open University degree in this subject)</li>
 </ul>
-
+</div>
+<div class="block-element" id="about-id">
+<h2>About this resume</h2>
+<p class="about">This resume is hosted on AWS, with the content you are reading served from an S3 bucket. The hit counter is incremented
+by a serverless application (ANS Lambda), accessed via an API gateway, with the data persisted in an Amazon DynamoDB instance,
+a NoSQL database platform. The resume was designed to be an illustration of the skills I have acquired by taking on the
+    <a href="https://cloudresumechallenge.dev">Cloud Resume Challenge</a>.   If you are interested in
+    learning about AWS or Cloud technologies, check out the link to the challenge, or to the code in <a href="https://github.com/petergreaves/crc">github.</a></p>
+</div>
 <script>
     // Main function to fetch hits from REST service
     async function fetchHits() {
