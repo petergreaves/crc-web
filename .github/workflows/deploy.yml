@@ -37,3 +37,4 @@ jobs:
           echo "Updating latest resume content ..."
           aws s3 cp html/index.html s3://${{ secrets.S3_BUCKET }}
           aws s3 cp html/stylesheet.css s3://${{ secrets.S3_BUCKET }}
+          aws s3 cp html/images s3://${{ secrets.S3_BUCKET }}/images --recursive

@@ -80,17 +80,27 @@ img {
 	max-width: 100%;
 }
 
+.left-image {
+            float: left;
+            margin: 0 10px 10px 0; /* top, right, bottom, left */
+            max-width: 175px;
+            height: auto;
+            border-radius: 8px;
+}
+
 li {
 	line-height: 1.5em;
 }
 
-aside,
-[class *= "sidebar"],
-[id *= "sidebar"] {
-	max-width: 90%;
-	margin: 0 auto;
-	border: 1px solid lightgrey;
-	padding: 5px 15px;
+.block-element {
+            display: block;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #388e3c;
+            width: 1200px;
+}
+p.about{
+  font-size: 15px;
 }
 
 @media (min-width: 1921px) {
